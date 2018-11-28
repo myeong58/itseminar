@@ -8,8 +8,7 @@ $common_db_name = "test_db01";                 //데이터베이스명
 
 //path
 $common_path =  "http://".$_SERVER['HTTP_HOST']."/it_project/B/".$common_id."/home.php";
-$common_path2 =  "http://".$_SERVER['HTTP_HOST']."/it_project/B/".$common_id."/home2.php";
-$common_path3 =  "http://".$_SERVER['HTTP_HOST']."/it_project/B/".$common_id."/home2.php";
+
  
 
 
