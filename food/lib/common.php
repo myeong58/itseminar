@@ -4,7 +4,7 @@
 $common_host = "210.117.181.105";               //호스트명
 $common_id = "Bo";                      //계정아이디
 $common_pass = "Dhsmfdms?1";                //계정비밀번호
-$common_db_name = "test_db01";                 //데이터베이스명
+$common_db_name = "food";                 //데이터베이스명
 
 
 //path
