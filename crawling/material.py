@@ -6,10 +6,8 @@ import re
 
 jaeryo = []
 
-def get_mater(url):
-	u = 'http://www.10000recipe.com'
-	u = u + url
-	req = urllib.request.urlopen(u)
+def get_mater(URL):
+	req = urllib.request.urlopen(URL)
 	text = req.read().decode("utf-8")
 	html = re.split("[\n\t]+",text)
 	#print(html)
@@ -28,8 +26,7 @@ def get_mater(url):
 		else:
 			pass
 
-#get_mater('/recipe/6880142')
-#print(jaeryo)
-#get_mater('/recipe/6847470')
-get_mater('/recipe/6864080')
+uuu = 'http://www.10000recipe.com/recipe/6864080'
+#print(type(uuu))
+get_mater(uuu)
 print(jaeryo)

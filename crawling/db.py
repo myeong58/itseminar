@@ -15,8 +15,9 @@ def get_info(url, img, name):
 		#top10이 있는 부분 탐색	
 		if i.find("ranking_today_in") > 0:
 			#url 파싱
-			url_1 = re.search('"/recipe/[0-9]*"',i)
-			url.append(url_1.group())
+			url_1 = re.search('/recipe/[0-9]*',i)
+			rurl = 'http://www.10000recipe.com'
+			url.append(rurl+url_1.group())
 		
 			#이미지 파싱
 			img_1 = re.search("http://recipe1.[\w\W]*.jpg",i)
@@ -40,10 +41,10 @@ name = []
 
 get_info(url, img, name)
 
-#print(url)
+print(url)
 #print(img)
 #print(name)
-	
+'''	
 #SQL connection
 conn = pymysql.connect(
 	host='localhost',
@@ -65,4 +66,4 @@ conn.commit()
 
 conn.close()
 
-
+'''

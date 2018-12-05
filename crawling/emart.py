@@ -10,6 +10,8 @@ m_url = []
 m_name = []
 #가격
 m_price = []
+#이미지
+m_img = []
 
 def get_emart(jearyo):
 	jearyo = urllib.parse.quote(jearyo,safe='')
@@ -21,8 +23,10 @@ def get_emart(jearyo):
 	n = 0
 	for i in html:
 		if i.find("blank clickable") > 0:	
-			url_1 = re.search("/item/[\w\W]*=ssglist\"",i)
-			m_url.append(url_1.group())
+			url_1 = re.search("itemId=[\d]+",i)
+			url_1 = re.sub("itemId=","",url_1.group())
+			eurl = 'http://www.ssg.com/item/itemView.ssg?itemId='
+			m_url.append(eurl+url_1)
 		elif i.find("notiTitle") > 0:
 			name_1 = re.search('value="[\w\W]+',i)
 			name_1 = re.sub("value=\"","",name_1.group())
@@ -31,20 +35,24 @@ def get_emart(jearyo):
 		elif i.find("ssg_price") > 0:
 			price_1 = re.search('\d+\W*\d+',i)
 			m_price.append(price_1.group())
+		elif i.find("notiImgPath") > 0:
+			img_1 = re.search("//item.[\w\W]*.jpg",i)
+			m_img.append(img_1.group())
 			n = n+1
 		else:
 			pass
 		if n > 10:
 			break
 
-a = '당근'
+a = '우유'
 
 get_emart(a)
 
 #print(m_url)
 #print(m_name)
-print(m_price)
-
+#print(m_price)
+print(m_img)
+'''
 conn = pymysql.connect(
 	host='localhost',
 	port=3306,
@@ -65,4 +73,4 @@ curs.execute(sql2)
 conn.commit()
 
 conn.close()
-	
+'''	
