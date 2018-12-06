@@ -4,14 +4,6 @@ import urllib.request
 import re
 import pymysql
 
-#제품url
-hm_url = []
-#제품이름
-hm_name = []
-#가격
-hm_price = []
-#이미지
-hm_img = []
 def get_hmart(jearyo):
 	jearyo = urllib.parse.quote(jearyo,safe='')
 	jearyo = urllib.parse.quote(jearyo,safe='')
@@ -40,19 +32,29 @@ def get_hmart(jearyo):
 					hm_img.append(img_1)
 		elif re.search("cost",i):
 			price_1 = re.search('\d+\W*\d+',i)
-			hm_price.append(price_1.group())
+			price_1 = re.sub(",","",price_1.group())
+			hm_price.append(price_1)
 			n = n+1
 		else:
 			pass
 		if n > 10:
 			break
 
-a = '당근'
+#제품url
+hm_url = []
+#제품이름
+hm_name = []
+#가격
+hm_price = []
+#이미지
+hm_img = []
+
+a = '우유'
 get_hmart(a)
 #print(hm_url)
 #print(hm_name)
-#print(hm_price)
-print(hm_img)
+print(hm_price)
+#print(hm_img)
 
 '''
 conn = pymysql.connect(

@@ -4,15 +4,6 @@ import urllib.request
 import re
 import pymysql
 
-#제품url
-m_url = []
-#제품이름
-m_name = []
-#가격
-m_price = []
-#이미지
-m_img = []
-
 def get_emart(jearyo):
 	jearyo = urllib.parse.quote(jearyo,safe='')
 	URL = 'http://www.ssg.com/search.ssg?target=all&query='
@@ -26,32 +17,43 @@ def get_emart(jearyo):
 			url_1 = re.search("itemId=[\d]+",i)
 			url_1 = re.sub("itemId=","",url_1.group())
 			eurl = 'http://www.ssg.com/item/itemView.ssg?itemId='
-			m_url.append(eurl+url_1)
+			em_url.append(eurl+url_1)
 		elif i.find("notiTitle") > 0:
 			name_1 = re.search('value="[\w\W]+',i)
 			name_1 = re.sub("value=\"","",name_1.group())
 			name_1 = re.sub("\">","",name_1)
-			m_name.append(name_1)
+			em_name.append(name_1)
 		elif i.find("ssg_price") > 0:
 			price_1 = re.search('\d+\W*\d+',i)
-			m_price.append(price_1.group())
+			price_1 = re.sub(",","",price_1.group())
+			em_price.append(price_1)
 		elif i.find("notiImgPath") > 0:
 			img_1 = re.search("//item.[\w\W]*.jpg",i)
-			m_img.append(img_1.group())
+			em_img.append(img_1.group())
 			n = n+1
 		else:
 			pass
 		if n > 10:
 			break
 
+#제품url
+em_url = []
+#제품이름
+em_name = []
+#가격
+em_price = []
+#이미지
+em_img = []
+
+
 a = '우유'
 
 get_emart(a)
 
-#print(m_url)
-#print(m_name)
-#print(m_price)
-print(m_img)
+#print(em_url)
+#print(em_name)
+print(em_price)
+#print(em_img)
 '''
 conn = pymysql.connect(
 	host='localhost',
@@ -67,7 +69,7 @@ sql = "INSERT INTO E_Mart (EM_Url,EM_Price,EM_Menu) VALUES (%s,%s,%s)"
 sql2 ="SELECT DISTINCT * FROM E_Mart"
 
 for i in range(10):
-	curs.execute(sql,(m_url[i],m_price[i],m_name[i]))
+	curs.execute(sql,(em_url[i],em_price[i],em_name[i],em.img[i]))
 
 curs.execute(sql2)
 conn.commit()
