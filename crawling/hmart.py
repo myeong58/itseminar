@@ -4,7 +4,7 @@ import urllib.request
 import re
 import pymysql
 
-def get_hmart(jearyo):
+def get_hmart(jearyo,hm_url,hm_price,hm_name,hm_img):
 	jearyo = urllib.parse.quote(jearyo,safe='')
 	jearyo = urllib.parse.quote(jearyo,safe='')
 	URL = 'http://www.homeplus.co.kr/app.search.HeaderSearch.ghs?comm=usr.header.search.basic4&search_query='
@@ -39,42 +39,3 @@ def get_hmart(jearyo):
 			pass
 		if n > 10:
 			break
-
-#제품url
-hm_url = []
-#제품이름
-hm_name = []
-#가격
-hm_price = []
-#이미지
-hm_img = []
-
-a = '우유'
-get_hmart(a)
-#print(hm_url)
-#print(hm_name)
-print(hm_price)
-#print(hm_img)
-
-'''
-conn = pymysql.connect(
-	host='localhost',
-	port=3306,
-	user='Bo',
-	passwd='Dhsmfdms?1',
-	db='food'
-)
-
-curs = conn.cursor()
-
-sql = "INSERT INTO E_Mart (EM_Url,EM_Price,EM_Menu) VALUES (%s,%s,%s)"
-sql2 ="SELECT DISTINCT * FROM E_Mart"
-
-for i in range(10):
-	curs.execute(sql,(m_url[i],m_price[i],m_name[i]))
-
-curs.execute(sql2)
-conn.commit()
-
-conn.close()
-'''	

@@ -5,7 +5,7 @@ import re
 import pymysql
 import sys
 
-def get_emart(jearyo):
+def get_lmart(jearyo,lm_url,lm_price,lm_name,lm_img):
 	jearyo = urllib.parse.quote(jearyo,safe='')
 	URL = 'http://www.lottemart.com/search/search.do?searchTerm='
 	URL = URL + jearyo
@@ -39,44 +39,3 @@ def get_emart(jearyo):
 			n = n+1
 			if n > 10:
 				break
-#sys.stdout = open('out.txt','w')
-	
-#제품url
-lm_url = []
-#제품이름
-lm_name = []
-#가격
-lm_price = []
-#이미지
-lm_img = []
-
-a = '우유'
-
-get_emart(a)
-
-print(lm_url)
-print(lm_name)
-print(lm_price)
-print(lm_img)
-'''
-conn = pymysql.connect(
-	host='localhost',
-	port=3306,
-	user='Bo',
-	passwd='Dhsmfdms?1',
-	db='food'
-)
-
-curs = conn.cursor()
-
-sql = "INSERT INTO E_Mart (EM_Url,EM_Price,EM_Menu) VALUES (%s,%s,%s)"
-sql2 ="SELECT DISTINCT * FROM E_Mart"
-
-for i in range(10):
-	curs.execute(sql,(m_url[i],m_price[i],m_name[i]))
-
-curs.execute(sql2)
-conn.commit()
-
-conn.close()
-'''	
