@@ -14,12 +14,14 @@ def get_lmart(jearyo,lm_url,lm_price,lm_name,lm_img):
 	html = re.split("[\n\t]+",text)
 	n = 0
 	for i,x in enumerate(html):
+		if re.search("검색결과가 없습니다.",x):
+			break
 		l = re.search("prod-name",x)
 		p = re.search("num-n",x)
 		m = re.search("wrap-thumb",x)
 		if l:
 			#url 추출
-			lm_url_1 = re.search("Detail\('C\d+', '\d+'",html[i+2])
+			lm_url_1 = re.search("Detail\('C\d+', '\w*\d+'",html[i+2])
 			lm_url_1 = re.split("[']",lm_url_1.group())	
 			lm_url_1 = 'http://www.lottemart.com/product/ProductDetail.do?CategoryID=' + lm_url_1[1] + '&ProductCD=' + lm_url_1[3]	
 			lm_url.append(lm_url_1)

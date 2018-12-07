@@ -14,6 +14,8 @@ def get_hmart(jearyo,hm_url,hm_price,hm_name,hm_img):
 	html = re.split("[\n\t]+",text)
 	n = 0
 	for i in html:
+		if re.search("검색결과가 없습니다.",i):
+			break
 		if re.search("<span class=\"ico\"",i):	
 			line = re.split('([<>])',i)
 			for k in line:
@@ -39,3 +41,4 @@ def get_hmart(jearyo,hm_url,hm_price,hm_name,hm_img):
 			pass
 		if n > 10:
 			break
+
