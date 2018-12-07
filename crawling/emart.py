@@ -17,19 +17,20 @@ def get_emart(jearyo,em_url,em_price,em_name,em_img):
 		text = req.read().decode("utf-8")
 		html = re.split("[\n\t]+",text)
 		n = 0
-		for i in html:
+		for num,i in enumerate(html):
 			ex = re.search("검색결과가 없습니다.",i)
-			u = re.search("black clickable",i)
+			u = re.search("\"thmb\"",i)
 			na = re.search("notiTitle",i)
 			p = re.search("ssg_price",i)
 			im = re.search("notiImgPath",i)
 			if ex:
 				break
+			if n > 10:
+				break
 			if u:	
-				url_1 = re.search("itemId=[\d]+",i)
-				url_1 = re.sub("itemId=","",url_1.group())
-				eurl = 'http://www.ssg.com/item/itemView.ssg?itemId='
-				em_url.append(eurl+url_1)
+				url_s = re.split("\"",html[num+1])
+				url_1 = "www.ssg.com" + url_s[1]
+				em_url.append(url_1)
 			elif na:
 				name_1 = re.search('value="[\w\W]+',i)
 				name_1 = re.sub("value=\"","",name_1.group())
@@ -45,6 +46,12 @@ def get_emart(jearyo,em_url,em_price,em_name,em_img):
 				n = n+1
 			else:
 				pass
-			if n > 10:
-				break
+'''
+q=[];w=[];e=[];r=[]
+get_emart('고추장',q,w,e,r)
+print(q)
+print(w)
+print(e)
+print(r)
 
+'''
