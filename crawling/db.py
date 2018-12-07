@@ -22,26 +22,29 @@ lm_url = []; lm_price=[]; lm_name=[]; lm_img=[]
 
 get_info(url, img, name)
 
-#print(url)
-#print(img)
-#print(name)
-
 for i,u in enumerate(url):
 	get_mater(u,jaeryo[i])	
 	
-for i in range(10):
-	for j in jaeryo[i]:
-		print(j)
-#		get_emart(j,em_url,em_price,em_name,em_img)
+#print(url)
+#print(img)
+#print(name)
+#print(jaeryo)
+ 
+#for i in range(10):
+for j in jaeryo[0]:
+	print(j)
+	get_emart(j,em_url,em_price,em_name,em_img)
 
-#print(em_name)
+print(em_name)
+print(em_price)
+
 '''	
 #SQL connection
 conn = pymysql.connect(
 	host='localhost',
 	port=3306,
-	user='Bo',
-	passwd='Dhsmfdms?1',
+	user='bong',
+	passwd='Qorhvkdy!1',
 	db='food'
 )
 
