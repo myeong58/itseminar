@@ -2,8 +2,6 @@
 
 import urllib.request
 import re
-import pymysql
-import sys
 
 def get_lmart(jearyo,lm_url,lm_price,lm_name,lm_img):
 	jearyo = urllib.parse.quote(jearyo,safe='')
@@ -15,6 +13,8 @@ def get_lmart(jearyo,lm_url,lm_price,lm_name,lm_img):
 	n = 0
 	for i,x in enumerate(html):
 		if re.search("검색결과가 없습니다.",x):
+			break
+		if re.search("pagelist",x):
 			break
 		l = re.search("prod-name",x)
 		p = re.search("num-n",x)
@@ -43,3 +43,4 @@ def get_lmart(jearyo,lm_url,lm_price,lm_name,lm_img):
 				break
 		else:
 			pass
+

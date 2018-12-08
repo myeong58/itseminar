@@ -2,10 +2,12 @@
 
 import urllib.request
 from urllib.request import HTTPError
-from urllib.request import FancyURLopener
 import re
+from random import *
+import time
 
 def get_emart(jearyo,em_url,em_price,em_name,em_img):
+	time.sleep(randint(0,8))
 	jearyo = urllib.parse.quote(jearyo,safe='')
 	URL = 'http://www.ssg.com/search.ssg?target=all&query='
 	URL = URL + jearyo
@@ -26,6 +28,8 @@ def get_emart(jearyo,em_url,em_price,em_name,em_img):
 			na = re.search("notiTitle",i)
 			p = re.search("ssg_price",i)
 			im = re.search("notiImgPath",i)
+			if re.search("pager",i):
+				break
 			if ex:
 				break
 			if n > 10:
@@ -49,11 +53,3 @@ def get_emart(jearyo,em_url,em_price,em_name,em_img):
 				n = n+1
 			else:
 				pass
-'''
-q=[];w=[];e=[];r=[]
-get_emart('고추장',q,w,e,r)
-#print(q)
-#print(w)
-#print(e)
-print(r)
-'''

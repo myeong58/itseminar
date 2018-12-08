@@ -2,7 +2,6 @@
 
 import urllib.request
 import re
-import pymysql
 
 def get_info(url, img, name):
 	#만개의 레시피 오늘의 랭킹 top10 

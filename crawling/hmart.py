@@ -16,14 +16,16 @@ def get_hmart(jearyo,hm_url,hm_price,hm_name,hm_img):
 	for i in html:
 		if re.search("검색결과가 없습니다.",i):
 			break
+		if re.search("\"paging\"",i):
+			break
 		if re.search("<span class=\"ico\"",i):	
 			line = re.split('([<>])',i)
 			for k in line:
-				name_1 = re.search("alt=\"[\w\W]*\"",k)
+				name_1 = re.search("\d+\" alt=\"[\w\W]*\"",k)
 				url_1 = re.search("jsGoodDetail\('\d+'",k)
 				img_1 = re.search("img src=\"[\w\W]*.jpg",k)
 				if (name_1):
-					name_1 = re.sub("alt=","",name_1.group())
+					name_1 = re.sub("\d+\" alt=","",name_1.group())
 					hm_name.append(name_1)
 				if(url_1):
 					url_1 = re.search("\d+",url_1.group())
