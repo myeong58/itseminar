@@ -37,50 +37,19 @@ for i,u in enumerate(url):
 #for i in range(10):
 for k,j in enumerate(jaeryo[0]):
 	print(j,'\n')
-	get_emart(j,em_url[k],em_price[k],em_name[k],em_img[k])
-	print(em_url[k],'\n',em_price[k],'\n',em_name[k],'\n',em_img[k])
+	get_hmart(j,hm_url[k],hm_price[k],hm_name[k],hm_img[k])
+	get_lmart(j,lm_url[k],lm_price[k],lm_name[k],lm_img[k])
+
+#	print(em_url[k],'\n',em_price[k],'\n',em_name[k],'\n',em_img[k])
 ##	get_hmart(j,hm_url[k],hm_price[k],hm_name[k],hm_img[k])
 #	get_lmart(j,lm_url[k],lm_price[k],lm_name[k],lm_img[k])
-'''
-			
-print(em_url)
-print("\n")
-print(em_price)
-print('\n')
-print(em_name)
-print('\n')
-print(em_img)
 
-
-print('\n')
-print('\n')
-
-print(hm_url)
-print('\n')
-print(hm_price)
-print('\n')
-print(hm_name)
-print('\n')
-print(hm_img)
-
-print('\n')
-print('\n')
-
-print(lm_url)
-print('\n')
-print(lm_price)
-print('\n')
-print(lm_name)
-print('\n')
-print(lm_img)
-'''
-'''	
 #SQL connection
 conn = pymysql.connect(
-	host='localhost',
+	host='106.10.36.173',
 	port=3306,
-	user='root',
-	passwd='M8rYM4A6ignm',
+	user='Bo',
+	passwd='Dhsmfdms?1',
 	db='food'
 )
 
@@ -89,15 +58,17 @@ curs = conn.cursor()
 
 #SQL문 실행
 jaeryo = "INSERT INTO JaeRyo (JR_Url,JR_Image,JR_Menu) VALUES (%s,%s,%s)"
-emart = "INSERT INTO E_Mart (EM_Url,EM_Image,EM_Menu,EM_Image) VALUES (%s,%s,%s,%s)"
+#emart = "INSERT INTO E_Mart (EM_Url,EM_Image,EM_Menu,EM_Image) VALUES (%s,%s,%s,%s)"
 hmart = "INSERT INTO H_Mart (HM_Url,HM_Image,HM_Menu,HM_Image) VALUES (%s,%s,%s,%s)"
-jmart = "INSERT INTO L_Mart (LM_Url,LM_Image,LM_Menu,LM_Image) VALUES (%s,%s,%s,%s)"
+lmart = "INSERT INTO L_Mart (LM_Url,LM_Image,LM_Menu,LM_Image) VALUES (%s,%s,%s,%s)"
 
 for i in range(10): 
-	curs.execute(sql,(url[i],img[i],name[i]))
+	curs.execute(jaeryo,(url[i],img[i],name[i],jaeryo[i]))
+	#curs.execute(emart,(e_url[i],e_price[i],e_name[i],e_img[i]))
+	curs.execute(hmart,(h_url[i],h_price[i],h_name[i],h_img[i]))
+	curs.execute(lmart,(l_url[i],l_price[i],l_name[i],l_img[i]))
 
 conn.commit()
 
 conn.close()
 
-'''

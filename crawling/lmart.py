@@ -30,14 +30,16 @@ def get_lmart(jearyo,lm_url,lm_price,lm_name,lm_img):
 			lm_name_1 = re.sub("</a>","",html[i+3])
 			lm_name.append(lm_name_1)
 		
-		if p:
+		elif p:
 			#가격	
 			lm_price_1 = re.search("\d+\W*\d+",html[i])
 			lm_price_1 = re.sub(",","",lm_price_1.group())
 			lm_price.append(lm_price_1)
-		if m:
+		elif m:
 			lm_img_1 = re.search("http://[\w\W]+.jpg",html[i+2])
 			lm_img.append(lm_img_1.group())
 			n = n+1
 			if n > 10:
 				break
+		else:
+			pass

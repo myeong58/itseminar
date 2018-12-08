@@ -2,14 +2,17 @@
 
 import urllib.request
 from urllib.request import HTTPError
+from urllib.request import FancyURLopener
 import re
-import pymysql
 
 def get_emart(jearyo,em_url,em_price,em_name,em_img):
 	jearyo = urllib.parse.quote(jearyo,safe='')
 	URL = 'http://www.ssg.com/search.ssg?target=all&query='
 	URL = URL + jearyo
 	try:
+		opener = urllib.request.build_opener()
+		opener.addheaders = [('User-agent','Mozilla/5.0')]
+		urllib.request.install_opener(opener)
 		req = urllib.request.urlopen(URL)
 	except HTTPError as e:
 		pass
@@ -49,9 +52,8 @@ def get_emart(jearyo,em_url,em_price,em_name,em_img):
 '''
 q=[];w=[];e=[];r=[]
 get_emart('고추장',q,w,e,r)
-print(q)
-print(w)
-print(e)
+#print(q)
+#print(w)
+#print(e)
 print(r)
-
 '''
