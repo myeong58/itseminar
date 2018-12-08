@@ -3,22 +3,25 @@
 import urllib.request
 from urllib.request import HTTPError
 import re
+from fake_useragent  import UserAgent
 from random import *
 import time
 
 def get_emart(jearyo,em_url,em_price,em_name,em_img):
-	time.sleep(randint(0,8))
+	time.sleep(randint(0,10))
 	jearyo = urllib.parse.quote(jearyo,safe='')
 	URL = 'http://www.ssg.com/search.ssg?target=all&query='
 	URL = URL + jearyo
 	try:
+		ua = UserAgent()
 		opener = urllib.request.build_opener()
-		opener.addheaders = [('User-agent','Mozilla/5.0')]
+		opener.addheaders = [('User-agent', ua.random)]
 		urllib.request.install_opener(opener)
 		req = urllib.request.urlopen(URL)
 	except HTTPError as e:
-		pass
-	else:
+#		time.sleep(randint(10,30))
+		print(e)
+	finally:
 		text = req.read().decode("utf-8")
 		html = re.split("[\n\t]+",text)
 		n = 0
