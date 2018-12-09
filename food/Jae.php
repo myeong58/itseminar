@@ -10,6 +10,9 @@
 	$data=mysqli_fetch_array($result);		
 					
 						?>
+
+				
+						
 <html lang="ko">
 
   <head>
@@ -20,40 +23,54 @@
     <meta name="author" content="">			
 
 	
-		
-							
 							<font size="5">
-		
-							<li><a><strong><?php print $data['JR_1']?></a>
-							<a><?php print $data['JR_2']?></a>
-							<a><?php print $data['JR_3']?></a>
-							<a><?php print $data['JR_4']?></a>
-							<a><?php print $data['JR_5']?><strong></a></li>
-							<li><a><strong><?php print $data['JR_6']?></a>
-							<a><?php print $data['JR_7']?></a>
-							<a><?php print $data['JR_8']?></a>
-							<a><?php print $data['JR_9']?></a>
-							<a><?php print $data['JR_10']?><strong></a></li>
-							<li><a><strong><?php print $data['JR_11']?></a>
-							<a><?php print $data['JR_12']?></a>
-							<a><?php print $data['JR_13']?></a>
-							<a><?php print $data['JR_14']?></a>
-							<a><?php print $data['JR_15']?><strong></a></li>
-							<li><a><strong><?php print $data['JR_16']?></a>
-							<a><?php print $data['JR_17']?></a>
-							<a><?php print $data['JR_18']?></a>
-							<a><?php print $data['JR_19']?></a>
-							<a><?php print $data['JR_20']?><strong></a></li>
-							<li><a><strong><?php print $data['JR_21']?></a>
-							<a><?php print $data['JR_22']?></a>
-							<a><?php print $data['JR_23']?></a>
-							<a><?php print $data['JR_24']?></a>
-							<a><?php print $data['JR_25']?></a>
-							<a><?php print $data['JR_26']?></a>
-							<a><?php print $data['JR_27']?></a>
-							<a><?php print $data['JR_28']?></a>
-							<a><?php print $data['JR_29']?></a>
-							<a><?php print $data['JR_30']?><strong></a></li>
+								<style>
+										a{
+											color:black;
+										}
+										a:hover{
+											color:red;
+										}
+										a:active{
+											color:black;
+										}
+								</style>
+							
+							<li><strong><a href= "price.php?HM_Jae=<?=$data['JR_1']?>"><?php echo $data['JR_1']?></a>
+							<a href= "price.php?HM_Jae=<?=$data['JR_2']?>"><?php echo $data['JR_2']?>
+							<a href= "price.php?HM_Jae=<?=$data['JR_3']?>"><?php echo $data['JR_3']?>
+							<a href= "price.php?HM_Jae=<?=$data['JR_4']?>"><?php echo $data['JR_4']?>
+							<a href= "price.php?HM_Jae=<?=$data['JR_5']?>"><?php echo $data['JR_5']?></strong></a></li>
+							<li><strong><a href= "price.php?HM_Jae=<?=$data['JR_6']?>"><?php echo $data['JR_6']?></a>
+							<a href= "price.php?HM_Jae=<?=$data['JR_7']?>"><?php echo $data['JR_7']?>
+							<a href= "price.php?HM_Jae=<?=$data['JR_8']?>"><?php echo $data['JR_8']?>
+							<a href= "price.php?HM_Jae=<?=$data['JR_9']?>"><?php echo $data['JR_9']?>
+							<a href= "price.php?HM_Jae=<?=$data['JR_10']?>"><?php echo $data['JR_10']?></strong></a></li>
+							<li><strong><a href= "price.php?HM_Jae=<?=$data['JR_11']?>"><?php echo $data['JR_11']?></a>
+							<a href= "price.php?HM_Jae=<?=$data['JR_12']?>"><?php echo $data['JR_12']?>
+							<a href= "price.php?HM_Jae=<?=$data['JR_13']?>"><?php echo $data['JR_13']?>
+							<a href= "price.php?HM_Jae=<?=$data['JR_14']?>"><?php echo $data['JR_14']?>
+							<a href= "price.php?HM_Jae=<?=$data['JR_15']?>"><?php echo $data['JR_15']?></strong></a></li>
+							<li><strong><a href= "price.php?HM_Jae=<?=$data['JR_16']?>"><?php echo $data['JR_16']?></a>
+							<a href= "price.php?HM_Jae=<?=$data['JR_17']?>"><?php echo $data['JR_17']?>
+							<a href= "price.php?HM_Jae=<?=$data['JR_18']?>"><?php echo $data['JR_18']?>
+							<a href= "price.php?HM_Jae=<?=$data['JR_19']?>"><?php echo $data['JR_19']?>
+							<a href= "price.php?HM_Jae=<?=$data['JR_20']?>"><?php echo $data['JR_20']?></strong></a></li>
+							<li><strong><a href= "price.php?HM_Jae=<?=$data['JR_21']?>"><?php echo $data['JR_21']?></a>
+							<a href= "price.php?HM_Jae=<?=$data['JR_22']?>"><?php echo $data['JR_22']?>
+							<a href= "price.php?HM_Jae=<?=$data['JR_23']?>"><?php echo $data['JR_23']?>
+							<a href= "price.php?HM_Jae=<?=$data['JR_24']?>"><?php echo $data['JR_24']?>
+							<a href= "price.php?HM_Jae=<?=$data['JR_25']?>"><?php echo $data['JR_25']?></strong></a></li>
+							<strong><a href= "price.php?HM_Jae=<?=$data['JR_26']?>"><?php echo $data['JR_26']?></a>
+							<a href= "price.php?HM_Jae=<?=$data['JR_27']?>"><?php echo $data['JR_27']?>
+							<a href= "price.php?HM_Jae=<?=$data['JR_28']?>"><?php echo $data['JR_28']?>
+							<a href= "price.php?HM_Jae=<?=$data['JR_29']?>"><?php echo $data['JR_29']?>
+							<a href= "price.php?HM_Jae=<?=$data['JR_30']?>"><?php echo $data['JR_30']?></strong></a>
+							
+							
+							
+							
+							
 							</font>
 				
 		  
