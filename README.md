@@ -1,4 +1,5 @@
-# IT-Seminar
+ IT-Seminar
+===============
 
 # WHAT IS THIS?
 
@@ -21,9 +22,13 @@
 
 # Modules
 	`$ sudo apt install python3`
+	
 	`$ sudo apt install python3-pip`
+	
 	`$ pip install pymysql`
+	
 	`$ pip install fake-useragent`
+	
 	`$ pip install urllib3`
 
 # Site
