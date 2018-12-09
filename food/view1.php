@@ -3,10 +3,12 @@
 session_start();
 include_once ("lib/dbconn.php");
 $conn=mysqli_connect("106.10.36.173","Bo","Dhsmfdms?1","food");
-$query ="select JR_Image from JaeRyo where JR_Num=1";
+mysqli_query("SET NAMES utf8");
+$Image=$_GET['JR_Image'];
+$query = " select JR_Image, JR_Menu, JR_Url from JaeRyo where JR_Image like '$Image' ";
 $result=mysqli_query($conn,$query);
 
-while($data=mysqli_fetch_array($result)){
+$data=mysqli_fetch_array($result);
 	
 
 ?>
@@ -34,14 +36,14 @@ while($data=mysqli_fetch_array($result)){
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="#">오늘 뭐먹지?</a>
+        <a class="navbar-brand" href="index.php">오늘 뭐먹지?</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="#">Home
+              <a class="nav-link" href="index.php">Home
                 <span class="sr-only">(current)</span>
               </a>
             </li>
@@ -70,8 +72,9 @@ while($data=mysqli_fetch_array($result)){
         </div>
 
         <div class="col-md-4">
-          <h3 class="my-3">레시피</h3>
-          <p>요리 설명.</p>
+			<h3 class="JR_Menu">[오늘의 레시피]</h3>
+          <h3 class="JR_Menu"><?php print $data['JR_Menu'] ?></h3>
+          <p><a href="<?php echo $data['JR_Url']?>"><?php echo $data['JR_Url']?></a></p>
           <h3 class="my-3">재료</h3>
           <ul>
             <li>Lorem Ipsum</li>
@@ -82,6 +85,10 @@ while($data=mysqli_fetch_array($result)){
         </div>
 
       </div>
+	  <br>
+	  <br>
+	  <br>
+	  <br>
       <!-- /.row -->
 
       <!-- Related Projects Row -->
@@ -108,7 +115,7 @@ while($data=mysqli_fetch_array($result)){
   </body>
   
  <?php
-		}
+		
 	mysqli_close($conn);
 ?>
 
