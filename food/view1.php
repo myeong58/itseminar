@@ -4,8 +4,8 @@ session_start();
 include_once ("lib/dbconn.php");
 $conn=mysqli_connect("106.10.36.173","Bo","Dhsmfdms?1","food");
 mysqli_query("SET NAMES utf8");
-$Image=$_GET['JR_Image'];
-$query = " select JR_Image, JR_Menu, JR_Url from JaeRyo where JR_Image like '$Image' ";
+$Num=$_GET['JR_Num'];
+$query = " select JR_Image, JR_Menu, JR_Url from JaeRyo where JR_Num like '$Num' ";
 $result=mysqli_query($conn,$query);
 
 $data=mysqli_fetch_array($result);
@@ -77,10 +77,10 @@ $data=mysqli_fetch_array($result);
           <p><a href="<?php echo $data['JR_Url']?>"><?php echo $data['JR_Url']?></a></p>
           <h3 class="my-3">재료</h3>
           <ul>
-            <li>Lorem Ipsum</li>
-            <li>Dolor Sit Amet</li>
-            <li>Consectetur</li>
-            <li>Adipiscing Elit</li>
+              <?php 
+				session_start();
+				include_once("Jae2.php");
+			?>
           </ul>
         </div>
 

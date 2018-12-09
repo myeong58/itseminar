@@ -7,7 +7,6 @@ $query="select JR_Image,JR_Url,JR_Menu from JaeRyo where JR_Num='1'";
 $result=mysqli_query($conn,$query);
 $data=mysqli_fetch_array($result);
 
-
    
 ?>
 <html lang="ko">
@@ -74,19 +73,22 @@ $data=mysqli_fetch_array($result);
           <h3 class="JR_Menu"><?php print $data['JR_Menu'] ?></h3>
           <p><a href="<?php echo $data['JR_Url']?>"><?php echo $data['JR_Url']?></a></p>
           <h3 class="my-3">재료</h3>
+		 
           <ul>
-            <li>Lorem Ipsum</li>
-            <li>Dolor Sit Amet</li>
-            <li>Consectetur</li>
-            <li>Adipiscing Elit</li>
+            <?php 
+				session_start();
+				include_once("Jae.php");
+			?>
           </ul>
         </div>
+		
+		<br>
 
       </div>
       <!-- /.row -->
 
       <!-- Related Projects Row -->
-      <h3 class="my-4">오늘의 다른 뭐먹지?</h3>
+      <h3 class="my-4"><오늘의 다른 뭐먹지?></h3>
 
 	  	<div class="row">
 	  <?php
@@ -98,7 +100,7 @@ $data=mysqli_fetch_array($result);
 			$b=2;
 			for($a=1;$a<=11; $a++)
 				{	
-					$query2 ="select JR_Image from JaeRyo where JR_Num='$b'";
+					$query2 ="select JR_Image,JR_Num from JaeRyo where JR_Num='$b'";
 					$result2=mysqli_query($conn,$query2);
 					$b=$b+1;
 				
@@ -107,7 +109,7 @@ $data=mysqli_fetch_array($result);
 			
 
 		<div class="col-md-3 col-sm-6 mb-4">
-			<a href= "view1.php?JR_Image=<?=$data['JR_Image']?>">
+			<a href= "view1.php?JR_Num=<?=$data['JR_Num']?>">
             <img class="img-fluid"><img src=<?=$data['JR_Image']?> width='255'height='150'>
 			</a>
 		</div>
