@@ -3,9 +3,9 @@
  session_start();
 include_once ("lib/dbconn.php");
 $conn=mysqli_connect("106.10.36.173","Bo","Dhsmfdms?1","food");
-$query="select JR_Image from JaeRyo where JR_Num='1'";
+$query="select JR_Image,JR_Url,JR_Menu from JaeRyo where JR_Num='1'";
 $result=mysqli_query($conn,$query);
-$data=mysqli_fetch_array($result)
+$data=mysqli_fetch_array($result);
 
 
    
@@ -70,8 +70,9 @@ $data=mysqli_fetch_array($result)
         </div>
 
         <div class="col-md-4">
-          <h3 class="my-3">레시피</h3>
-          <p>요리 설명.</p>
+         <h3 class="JR_Menu">[오늘의 레시피]</h3>
+          <h3 class="JR_Menu"><?php print $data['JR_Menu'] ?></h3>
+          <p><a href="<?php echo $data['JR_Url']?>"><?php echo $data['JR_Url']?></a></p>
           <h3 class="my-3">재료</h3>
           <ul>
             <li>Lorem Ipsum</li>
@@ -106,8 +107,8 @@ $data=mysqli_fetch_array($result)
 			
 
 		<div class="col-md-3 col-sm-6 mb-4">
-			<a>
-            <img class="img-fluid"><img src=<?=$data['JR_Image']?> width='255'height='150' onclick="location.href='view1.php'">
+			<a href= "view1.php?JR_Image=<?=$data['JR_Image']?>">
+            <img class="img-fluid"><img src=<?=$data['JR_Image']?> width='255'height='150'>
 			</a>
 		</div>
 		<?php
