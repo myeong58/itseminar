@@ -42,7 +42,8 @@
 	
     `$ pip install fake-useragent`     	
 	
-    `$ pip install urllib3`    	 
+    `$ pip install urllib3` 
+    
 
 # Site
 
