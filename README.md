@@ -27,7 +27,7 @@
 
 * Ubuntu 18.04
 * Apache2
-* MySQLi 5.7
+* MySQL 5.7
 
 * Python3
 * PHP 7.0
