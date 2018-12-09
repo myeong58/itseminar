@@ -35,7 +35,7 @@ def get_emart(jearyo,em_url,em_price,em_name,em_img):
 				break
 			if ex:
 				break
-			if n > 10:
+			if n > 5:
 				break
 			if u:	
 				url_s = re.split("\"",html[num+1])
