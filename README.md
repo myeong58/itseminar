@@ -20,7 +20,7 @@
 > 	각 마트에서 재료에 대한 상위 10개의 제품정보 크롤링.	
 > - db:
 > 
-> 	크롤링해온 정보를 DB로 전송 .	
+> 	크롤링해온 정보를 DB로 전송. 	
  
 
 # Environment
@@ -34,15 +34,15 @@
 
 # Modules
 
-	`$ sudo apt install python3`	
+    `$ sudo apt install python3`    	
 	
-	`$ sudo apt install python3-pip`	
+    `$ sudo apt install python3-pip`    	
 	
-	`$ pip install pymysql`	
+    `$ pip install pymysql`    	
 	
-	`$ pip install fake-useragent`	
+    `$ pip install fake-useragent`     	
 	
-	`$ pip install urllib3`	
+    `$ pip install urllib3`    	 
 
 # Site
 
@@ -55,6 +55,3 @@
 <http://emart.ssg.com/>
 <http://www.homeplus.co.kr/>
 <http://www.lottemart.com/>
-
-
-
