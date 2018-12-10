@@ -17,8 +17,11 @@ def get_mater(URL,jaeryo):
 					jaeryo_1= re.search("<li>[\w\W]+\s\s+",html[num])
 					jaeryo_1 = re.sub("<li>","",jaeryo_1.group())
 					jaeryo_1 = re.sub("\s+","",jaeryo_1)
+					if re.search("\(",jaeryo_1):
+						jaeryo_1 = re.sub("\([\w\W]+\)","",jaeryo_1)
 					jaeryo.append(jaeryo_1)
 				num = num+1
 			break	
 		else:
 			pass
+

@@ -43,4 +43,3 @@ def get_lmart(jearyo,lm_url,lm_price,lm_name,lm_img):
 				break
 		else:
 			pass
-

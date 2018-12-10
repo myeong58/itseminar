@@ -12,16 +12,16 @@ def get_emart(jearyo,em_url,em_price,em_name,em_img):
 	jearyo = urllib.parse.quote(jearyo,safe='')
 	URL = 'http://www.ssg.com/search.ssg?target=all&query='
 	URL = URL + jearyo
+	ua = UserAgent()
+	opener = urllib.request.build_opener()
 	try:
-		ua = UserAgent()
-		opener = urllib.request.build_opener()
 		opener.addheaders = [('User-agent', ua.random)]
 		urllib.request.install_opener(opener)
 		req = urllib.request.urlopen(URL)
 	except HTTPError as e:
-#		time.sleep(randint(10,30))
-		print(e)
-	finally:
+		pass
+	#	time.sleep(randint(10,30))
+	else:
 		text = req.read().decode("utf-8")
 		html = re.split("[\n\t]+",text)
 		n = 0
@@ -35,7 +35,7 @@ def get_emart(jearyo,em_url,em_price,em_name,em_img):
 				break
 			if ex:
 				break
-			if n > 5:
+			if n > 7:
 				break
 			if u:	
 				url_s = re.split("\"",html[num+1])
