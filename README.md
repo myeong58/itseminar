@@ -60,7 +60,7 @@
     
 # DataBase Table  
 
-
+![dbtable](https://raw.githubusercontent.com/myeong58/itseminar/master/food/dbtable.PNG)
 
 # Site
 
