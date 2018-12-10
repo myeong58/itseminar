@@ -17,14 +17,14 @@
 >	각 레시피에서 재료정보 크롤링.	
 > - emart, hmart, lmart:	
 > 
-> 	각 마트에서 재료에 대한 상위 10개의 제품정보 크롤링.	
-> - db:
+> 	각 마트에서 재료에 대한 상위 10개의 제품정보 크롤링.		
+> - database:
 > 
-> 	크롤링해온 정보를 DB로 전송. 	
+>      크롤링한 데이터들을 각 마트별 테이블에 저장하고 레시피의 재료 테이블에 각각 저장.
+> - web:
+>
+>      Query문을 이용하여 크롤링한 데이터들을 추출하여 웹페이지를 통해 시각화.
 
->database&web
-> 크롤링한 데이터들을 데이터베이스에 저장후 웹페이지를 통해 정보 시각화
-> Query문을 통해 필요한 정보들만 추출 
  
 
 # Environment
@@ -55,8 +55,12 @@
 	
     `$ pip install fake-useragent`     	
 	
-    `$ pip install urllib3` 
+    `$ pip install urllib3`
     
+    
+# DataBase Table  
+
+
 
 # Site
 
