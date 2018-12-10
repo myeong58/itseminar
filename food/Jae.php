@@ -67,7 +67,7 @@
 							<a href= "price.php?HM_Jae=<?=$data['JR_29']?>"><?php echo $data['JR_29']?>
 							<a href= "price.php?HM_Jae=<?=$data['JR_30']?>"><?php echo $data['JR_30']?></strong></a>
 							
-							
+						
 							
 							
 							

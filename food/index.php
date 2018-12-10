@@ -9,6 +9,8 @@ $data=mysqli_fetch_array($result);
 
    
 ?>
+
+
 <html lang="ko">
 
   <head>
@@ -44,10 +46,6 @@ $data=mysqli_fetch_array($result);
                 <span class="sr-only">(current)</span>
               </a>
             </li>
-          
-            <li class="nav-item">
-              <a class="nav-link" href="#">Contact</a>
-            </li>
           </ul>
         </div>
       </div>
@@ -65,7 +63,7 @@ $data=mysqli_fetch_array($result);
       <div class="row">
 
         <div class="col-md-8">
-           <img class="JR_Image"><img src=<?=$data['JR_Image']?> width='600'height='500'>
+           <img class="JR_Image"><img src=<?=$data['JR_Image']?> width='600'height='500' style="border:4 solid black">
         </div>
 
         <div class="col-md-4">

@@ -6,8 +6,9 @@ $conn=mysqli_connect("106.10.36.173","Bo","Dhsmfdms?1","food");
 				
 mysqli_query("SET NAMES utf8");
 $Num=$_GET['HM_Jae'];
-$query = "SELECT DISTINCT HM_Url, HM_Price, HM_Menu, HM_Image FROM H_Mart WHERE HM_Jae LIKE '$Num%' ORDER BY HM_Price ASC";
+$query = "SELECT DISTINCT HM_Jae, HM_Url, HM_Price, HM_Menu, HM_Image FROM H_Mart WHERE HM_Jae LIKE '$Num' ORDER BY HM_Price ASC LIMIT 7";
 $result=mysqli_query($conn,$query);
+$data=mysqli_fetch_array($result);
 
    
 ?>
@@ -47,9 +48,6 @@ $result=mysqli_query($conn,$query);
               </a>
             </li>
           
-            <li class="nav-item">
-              <a class="nav-link" href="#">Contact</a>
-            </li>
           </ul>
         </div>
       </div>
@@ -63,15 +61,20 @@ $result=mysqli_query($conn,$query);
       <div class="row">
 
         <div class="col-lg-3">
+			
 
+		
           <h1 class="my-4">마트 가격</h1>
           <div class="list-group">
              <a href= "price.php?HM_Jae=<?=$data['HM_Jae']?>" class="list-group-item">홈플러스</a>
-			<a href= "price2.php?LM_Jae=<?=$data['LM_Jae']?>" class="list-group-item">롯데마트</a>
-    
+			<a href= "price2.php?LM_Jae=<?=$data['HM_Jae']?>" class="list-group-item">롯데마트</a>
+					
           </div>
 
         </div>
+		
+		
+		
         <!-- /.col-lg-3 -->
 
         <div class="col-lg-9">
@@ -80,14 +83,14 @@ $result=mysqli_query($conn,$query);
           <div class="row">
 	
 				
-		<?php
+	<?php
 						
-			for($a=1; $a<=6; $a++)
-			{
-				($data=mysqli_fetch_array($result))
+			
+				while($data=mysqli_fetch_array($result)){
+
+					
 									
 			?>
-		  
 		  
             <div class="col-lg-4 col-md-6 mb-4">
               <div class="card h-100">
@@ -105,11 +108,14 @@ $result=mysqli_query($conn,$query);
 			   
               </div>
             </div>
+		<?php 
 		
-		<?php
-			}
-			?>
-            
+				}
+				
+					
+						?>
+					
+					
           </div>
           <!-- /.row -->
 
@@ -122,6 +128,22 @@ $result=mysqli_query($conn,$query);
     </div>
     <!-- /.container -->
 
+	
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
     <!-- Footer -->
     <footer class="py-5 bg-dark">
       <div class="container">
