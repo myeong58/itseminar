@@ -32,6 +32,15 @@
 * Python3
 * PHP 7.0
 
+# Installation
+
+> Ubuntu 18.04에 LAMP ( Apache2, PHP5 / PHP7) 설치하는 방법은 아래의 링크를 참고해 주세요.
+* https://webnautes.tistory.com/1185 
+
+> MySql 5.7의 세부적인 설정은 아래의 링크를 참고해 주세요.
+* http://all-record.tistory.com/183
+
+
 # Modules
 
     `$ sudo apt install python3`    	
@@ -51,8 +60,8 @@
 
 # Target Site
 
-<http://www.10000recipe.com/ranking/list.html?type=hot>
+* <http://www.10000recipe.com/ranking/list.html?type=hot>
 
-<http://emart.ssg.com/>
-<http://www.homeplus.co.kr/>
-<http://www.lottemart.com/>
+* <http://emart.ssg.com/>
+* <http://www.homeplus.co.kr/>
+* <http://www.lottemart.com/>
