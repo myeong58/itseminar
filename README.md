@@ -1,8 +1,6 @@
  IT-Seminar
 ===============
 
-# WHAT IS THIS?
-
 # <What Today's Food?>
 
 - 요리하는 자취생들을 위한  레시피 및 가격비교  사이트
