@@ -60,8 +60,8 @@
 
 # Target Site
 
-<http://www.10000recipe.com/ranking/list.html?type=hot>
+* <http://www.10000recipe.com/ranking/list.html?type=hot>
 
-<http://emart.ssg.com/>
-<http://www.homeplus.co.kr/>
-<http://www.lottemart.com/>
+* <http://emart.ssg.com/>
+* <http://www.homeplus.co.kr/>
+* <http://www.lottemart.com/>
